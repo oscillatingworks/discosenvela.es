@@ -131,7 +131,7 @@ a:hover {
 
 @media (max-width: 767px) {
     .header h1 {
-        font-size: 6em;
+        font-size: 4em;
     }
     .header h4 {
         font-size: 1em;
