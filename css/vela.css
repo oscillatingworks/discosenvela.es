@@ -1,0 +1,291 @@
+/*!
+ * Start Bootstrap - Stylish Portfolio Bootstrap Theme (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+/* Global Styles */
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    font-family: Helvetica Neue, Helvetica, 'Arimo', sans-serif;
+    font-weight: 300;
+}
+
+.text-vertical-center {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.text-vertical-center h1 {
+    margin: 0;
+    padding: 0;
+    font-size: 10em;
+    font-weight: 400;
+}
+
+/* Custom Button Styles */
+
+.btn-dark {
+    border-radius: 0;
+    color: #fff;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.btn-dark:hover,
+.btn-dark:focus,
+.btn-dark:active {
+    color: #fff;
+    background-color: rgba(0,0,0,0.7);
+}
+
+.btn-light {
+    border-radius: 0;
+    color: #333;
+    background-color: rgb(255,255,255);
+}
+
+.btn-light:hover,
+.btn-light:focus,
+.btn-light:active {
+    color: #333;
+    background-color: rgba(255,255,255,0.8);
+}
+
+.btn-success {
+    border-radius: 0;
+    width: 7em;
+    font-size: 1em;
+}
+
+.btn-lg {
+  width: fit-content;
+  width: intrinsic;           /* Safari/WebKit uses a non-standard name */
+  width: -moz-max-content;    /* Firefox/Gecko */
+  width: -webkit-max-content; /* Chrome */
+}
+
+
+.btn-blink {
+  animation: blinker 1s linear infinite;
+  -moz-animation: blinker 1s linear infinite;
+  -webkit-animation: blinker 1s linear infinite;
+  -o-animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+  50% { opacity: 0.75; }
+}
+
+@-moz-keyframes blinker {
+  50% { opacity: 0.75; }
+}
+
+@-webkit-keyframes blinker {
+  50% { opacity: 0.75; }
+}
+
+/* Custom Horizontal Rule */
+
+hr.small {
+    max-width: 100px;
+    border-color: #4bfaf2;
+}
+
+hr.dark {
+    border-color: #000;
+}
+
+/* Links with custom color */
+
+a {
+    color: #f94392;
+}
+
+a:hover {
+    color: #4bfaf2;
+}
+
+/* Header */
+
+.header {
+    display: table;
+    position: relative;
+    width: 100%;
+    -webkit-background-size: auto 100%;
+    -moz-background-size: auto 100%;
+    background-size: auto 100%;
+    -o-background-size: auto 100%;
+    caret-color: transparent;
+}
+
+.header h4 {
+    font-size: 1.2em;
+}
+
+@media (max-width: 767px) {
+    .header h1 {
+        font-size: 8em;
+    }
+    .header h4 {
+        font-size: 1em;
+    }
+}
+
+/* Lead */
+
+h1.lead {
+    color: #FF5D73;
+    text-shadow: 4px 6px 0px #FFE4E5;
+    font-family: "Arimo";
+}
+
+.main:hover,
+.main:focus,
+.main.focus,
+.main:active,
+.main.active,
+.open > .main {
+  color: #fff;
+  background-color: #00B0FF;
+  border-color: #00B0FF;
+  box-shadow: 4px 6px 2px #FF5D73;
+}
+
+h4.lead {
+    color: #fff;
+    font-weight: 400;
+}
+
+
+.highlight{
+    background-color: #FF5D73;
+    box-shadow: 4px 6px 0px #FFE4E5;
+    padding: 0.3em 0.3em 0.3em 0.3em;
+}
+
+.highlight:hover,
+.highlight:focus,
+.highlight.focus,
+.highlight:active,
+.highlight.active,
+.open > .highlight {
+  color: #fff;
+  background-color: #00B0FF;
+  border-color: #00B0FF;
+  box-shadow: 4px 6px 2px #FF5D73;
+}
+
+p.lead {
+    text-align: left;
+}
+
+/* Buttons */
+
+@media (min-width: 767px) {
+  .btn {
+    box-shadow: 4px 6px 0px #FFE4E5;
+  }
+}
+
+@media (max-width: 767px) {
+  .btn {
+    width: 100%;
+    display: block;
+    padding: 0.4em;
+  }
+}
+
+.btn-success {
+  color: #fff;
+  background-color: #FF5D73;
+  border-color: #FF5D73;
+}
+
+.btn-success:hover,
+.btn-success:focus,
+.btn-success.focus,
+.btn-success:active,
+.btn-success.active,
+.open > .dropdown-toggle.btn-success {
+  color: #fff;
+  background-color: #00B0FF;
+  border-color: #00B0FF;
+}
+
+@media (min-width: 767px) {
+  .btn-success:hover,
+  .btn-success:focus,
+  .btn-success.focus,
+  .btn-success:active,
+  .btn-success.active,
+  .open > .dropdown-toggle.btn-success {
+    box-shadow: 4px 6px 2px #FF5D73;
+  }
+}
+
+.btn-last {
+  box-shadow: 4px 6px 0px #FFE4E5;
+}
+
+@media (max-width: 767px) {
+  .btn-last:hover,
+  .btn-last:focus,
+  .btn-last.focus,
+  .btn-last:active,
+  .btn-last.active,
+  .open > .dropdown-toggle.btn-last {
+    box-shadow: 4px 6px 2px #FF5D73;
+  }
+}
+
+/* Selected Text */
+::-moz-selection { /* Code for Firefox */
+  color: #f94392;
+  background: #4bfaf2;
+}
+
+::selection {
+  color: #f94392;
+  background: #4bfaf2;
+}
+
+/* Typed Cursor */
+
+.typed-cursor{
+    opacity: 1;
+    -webkit-animation: blink 0.7s infinite;
+    -moz-animation: blink 0.7s infinite;
+    animation: blink 0.7s infinite;
+}
+@keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-webkit-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-moz-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+
+/* Footer */
+
+footer {
+    padding: 100px 0;
+    width: 100%;
+    font-family: Helvetica Neue, Helvetica, 'Arimo', sans-serif;
+    background-color: #ffe98d;
+    background-size: cover;
+}
