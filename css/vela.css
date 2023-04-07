@@ -246,14 +246,14 @@ p.lead {
 }
 
 /* Selected Text */
-::-moz-selection { /* Code for Firefox */
-  color: #f94392;
-  background: #4bfaf2;
+::-moz-selection#bba7e6 { /* Code for Firefox */
+  color: #829adf;
+  background: #bba7e6;
 }
 
 ::selection {
-  color: #f94392;
-  background: #4bfaf2;
+  color: #829adf;
+  background: #bba7e6;
 }
 
 /* Typed Cursor */
