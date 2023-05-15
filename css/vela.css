@@ -19,6 +19,12 @@ body {
     cursor: none;
 }
 
+/* Articles */
+
+article {
+    font-size: 1.5em;
+}
+
 /* Custom Horizontal Rule */
 
 hr.small {
@@ -116,7 +122,7 @@ header h1,h2 {
   background: #7e8aed;
   /*Linear gradient... */
   background: 
-    radial-gradient(circle at center,#e5f96a,5%,#7e8aed,95%,#ECECE2);
+    radial-gradient(circle at top left,#e5f96a,4%,#7e8aed,95%,#ECECE2);
 }
 
 /* Footer */
