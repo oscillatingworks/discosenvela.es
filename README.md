@@ -1,6 +1,6 @@
-# vela.camp
+# discosenvela.es
 
-Code for https://oscillatingworks.github.io/vela.camp
+Code for https://oscillatingworks.github.io/discosenvela.es
 
 ## Development
 
