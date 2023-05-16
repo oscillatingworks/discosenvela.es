@@ -46,6 +46,7 @@ a {
 
 a:hover {
     color: #E5F96A;
+    font-style: italic;
 }
 
 /* Selected Text */
@@ -68,47 +69,13 @@ header {
 
 header h1 {
     font-size: 3em;
-}
-
-header h2 {
-  font-size: 2em;
-}
-
-header h1,h2 {
-  display: inline-block;
+    display: inline-block;
 }
 
 @media (max-width: 767px) {
     header h1 {
-        font-size: 1em;
+        font-size: 1.5em;
     }
-    header h2 {
-        font-size: 1em;
-    }
-}
-
-/* Typed Cursor */
-
-.typed-cursor{
-    opacity: 1;
-    -webkit-animation: blink 0.7s infinite;
-    -moz-animation: blink 0.7s infinite;
-    animation: blink 0.7s infinite;
-}
-@keyframes blink{
-    0% { opacity:1; }
-    50% { opacity:0; }
-    100% { opacity:1; }
-}
-@-webkit-keyframes blink{
-    0% { opacity:1; }
-    50% { opacity:0; }
-    100% { opacity:1; }
-}
-@-moz-keyframes blink{
-    0% { opacity:1; }
-    50% { opacity:0; }
-    100% { opacity:1; }
 }
 
 /* Mouse gradient */
