@@ -5,7 +5,9 @@ Code for https://oscillatingworks.github.io/discosenvela.es
 ## Development
 
 ```
-open index.html
+bundle install --path vendor/bundle
+bundle exec jekyll serve
+# go to localhost:4000
 ```
 
 ## Deployment
