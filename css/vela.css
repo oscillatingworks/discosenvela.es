@@ -22,18 +22,18 @@ body {
 /* Fonts */
 @font-face {
     font-family: 'Beatrice';
-    src: url("../fonts/BeatriceRegular.otf") format("opentype"),
-         url("../fonts/BeatriceRegular.woff") format("woff"),
-         url("../fonts/BeatriceRegular.ttf") format("truetype");
+    src: url("fonts/BeatriceRegular.otf") format("opentype"),
+         url("fonts/BeatriceRegular.woff") format("woff"),
+         url("fonts/BeatriceRegular.ttf") format("truetype");
 
 }
 
 @font-face {
     font-family: 'Beatrice';
     font-weight: bold;
-    src: url("../fonts/BeatriceBold.otf") format("opentype"),
-         url("../fonts/BeatriceBold.woff") format("woff"),
-         url("../fonts/BeatriceBold.ttf") format("truetype");
+    src: url("fonts/BeatriceBold.otf") format("opentype"),
+         url("fonts/BeatriceBold.woff") format("woff"),
+         url("fonts/BeatriceBold.ttf") format("truetype");
 }
 
 /* Articles */
