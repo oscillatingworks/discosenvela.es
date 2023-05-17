@@ -15,8 +15,25 @@ body {
 body {
     font-weight: 300;
     color: #ECECE2;
-    font-family: sans-serif;
+    font-family: 'Beatrice', sans-serif;
     cursor: none;
+}
+
+/* Fonts */
+@font-face {
+    font-family: 'Beatrice';
+    src: url("../fonts/BeatriceRegular.otf") format("opentype"),
+         url("../fonts/BeatriceRegular.woff") format("woff"),
+         url("../fonts/BeatriceRegular.ttf") format("truetype");
+
+}
+
+@font-face {
+    font-family: 'Beatrice';
+    font-weight: bold;
+    src: url("../fonts/BeatriceBold.otf") format("opentype"),
+         url("../fonts/BeatriceBold.woff") format("woff"),
+         url("../fonts/BeatriceBold.ttf") format("truetype");
 }
 
 /* Articles */
@@ -69,7 +86,12 @@ header {
 
 header h1 {
     font-size: 3em;
+    font-weight: normal;
     display: inline-block;
+}
+
+header h1.logo {
+    font-weight: bold;
 }
 
 @media (max-width: 767px) {
