@@ -26,6 +26,6 @@ $(document).ready(function(event) {
     $('.body-gradient').css('background', `radial-gradient(circle at ${mouseXpercentage}% ${mouseYpercentage}%, #e5f96a,4%,#7e8aed,95%,#ECECE2)`);
 });
 
-$('.no-body-gradient').ready(function(event) {
-    $('a').css({'cursor': 'pointer'})
+$('.body-gradient').mouseenter(function(event) {
+    $('a').css({'cursor': 'none'})
 });
