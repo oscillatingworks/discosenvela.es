@@ -16,7 +16,8 @@ body {
     font-weight: 300;
     color: #ECECE2;
     font-family: 'Beatrice', sans-serif;
-    cursor: none;
+    overflow-x: hidden;
+    caret-color: transparent;
 }
 
 /* Fonts */
@@ -34,12 +35,6 @@ body {
     src: url("../fonts/BeatriceBold.otf") format("opentype"),
          url("../fonts/BeatriceBold.woff") format("woff"),
          url("../fonts/BeatriceBold.ttf") format("truetype");
-}
-
-/* Articles */
-
-article {
-    font-size: 1.5em;
 }
 
 /* Custom Horizontal Rule */
@@ -66,6 +61,10 @@ a:hover {
     font-style: italic;
 }
 
+a.highlight {
+    color: #e5f96a;
+}
+
 /* Selected Text */
 ::-moz-selection { /* Code for Firefox */
   color: #7E8AED;
@@ -81,7 +80,7 @@ a:hover {
 
 header {
     width: 100%;
-    caret-color: transparent;
+    margin-bottom: -2%;
 }
 
 header h1 {
@@ -100,30 +99,63 @@ header h1.logo {
     }
 }
 
-/* Mouse gradient */
-.radial-gradient {
+/* Body with gradient */
+.body-gradient {
     position: fixed;
     top: 0px;
     left: 0px;
     width: 100%;
-  
+    cursor: none;
+
     /*Fallback if gradients don't work */
     background: #7e8aed;
     background: radial-gradient(circle at top left,#e5f96a,4%,#7e8aed,95%,#ECECE2);
 }
 
+/* Body with no gradient */
+.no-body-gradient {
+    position: sticky;
+
+    background: #7e8aed;
+    cursor: default;
+}
+
+/* Article */
+article {
+    display: absolute;
+    font-size: 1.5em;
+    padding-right: 3%;
+    padding-bottom: 50px;
+}
+
+@media (max-width: 767px) {
+    article {
+        font-size: 1em;
+    }
+}
+
+article.es {
+    color:#ECECE2;
+}
+
 /* Footer */
 footer {
   position: fixed;
-  padding: 10px 10px 0px 0px;
+  padding: 25px 0px 0px 8px;
+  margin-left: -8px;
   bottom: 0;
   width: 100%;
   /* Height of the footer*/
-  height: 40px;
+  height: 50px;
+}
+
+footer.no-index {
+    background: #7e8aed;
 }
 
 @media (max-width: 767px) {
   footer {
       font-size: 0.66em;
+      height: 30px;
   }
 }
