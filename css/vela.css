@@ -81,17 +81,30 @@ a.highlight {
 header {
     width: 100%;
     margin-bottom: -2%;
+    margin-left: -1em;
+    display: inline-flex;
+    align-items: center;
 }
 
 header h1 {
     font-size: 2em;
     font-weight: normal;
-    display: inline-block;
 }
 
 header h1.logo {
     font-size: 3em;
     font-weight: bold;
+}
+
+.header-logo {
+    background-image: url("../img/logo.png");
+    background-size: 9em;
+    background-repeat: no-repeat;
+    background-position-y: 40%;
+}
+
+img.logo {
+    width: 11em;
 }
 
 @media (max-width: 767px) {
@@ -101,6 +114,19 @@ header h1.logo {
     header h1 {
         font-size: 1.5em;
     }
+    img.logo {
+        width: 8em;
+    }
+}
+
+@media (max-width: 360px) {
+    header {
+        display: block;
+    }
+    header h1 {
+        margin-left: 2%;
+    }
+
 }
 
 /* Body with gradient */
