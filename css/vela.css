@@ -96,15 +96,24 @@ header h1.logo {
     font-weight: bold;
 }
 
-.header-logo {
-    background-image: url("../img/logo.png");
-    background-size: 9em;
-    background-repeat: no-repeat;
-    background-position-y: 40%;
+div.logo .logo-out {
+    width: 11em;
 }
 
-img.logo {
+div.logo .logo-in {
     width: 11em;
+}
+
+img.logo-in {
+    display: none;
+}
+
+div.logo:hover .logo-out {
+    display: none;
+}
+
+div.logo:hover .logo-in {
+    display: inline;
 }
 
 @media (max-width: 767px) {
@@ -115,6 +124,10 @@ img.logo {
         font-size: 1.5em;
     }
     img.logo {
+        width: 8em;
+    }
+
+    img.logo-hover {
         width: 8em;
     }
 }
