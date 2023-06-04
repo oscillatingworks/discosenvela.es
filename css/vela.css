@@ -81,7 +81,6 @@ a.highlight {
 header {
     width: 100%;
     margin-bottom: -2%;
-    margin-left: -1em;
     display: inline-flex;
     align-items: center;
 }
@@ -123,11 +122,10 @@ div.logo:hover .logo-in {
     header h1 {
         font-size: 1.5em;
     }
-    img.logo {
+    div.logo .logo-out {
         width: 8em;
     }
-
-    img.logo-hover {
+    div.logo .logo-in {
         width: 8em;
     }
 }
@@ -136,10 +134,6 @@ div.logo:hover .logo-in {
     header {
         display: block;
     }
-    header h1 {
-        margin-left: 2%;
-    }
-
 }
 
 /* Body with gradient */
