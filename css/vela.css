@@ -26,7 +26,7 @@ body {
     src: url("../fonts/BeatriceRegular.otf") format("opentype"),
          url("../fonts/BeatriceRegular.woff") format("woff"),
          url("../fonts/BeatriceRegular.ttf") format("truetype");
-
+    font-display: swap;
 }
 
 @font-face {
@@ -35,6 +35,7 @@ body {
     src: url("../fonts/BeatriceBold.otf") format("opentype"),
          url("../fonts/BeatriceBold.woff") format("woff"),
          url("../fonts/BeatriceBold.ttf") format("truetype");
+    font-display: swap;
 }
 
 /* Custom Horizontal Rule */
@@ -159,7 +160,6 @@ div.logo:hover .logo-in {
 
 /* Article */
 article {
-    display: absolute;
     font-size: 1.5em;
     padding-right: 3%;
     padding-bottom: 50px;
