@@ -57,6 +57,10 @@ a {
     cursor: crosshair;
 }
 
+.body-gradient a {
+    cursor: none;
+}
+
 a:hover {
     color: #E5F96A;
     font-style: italic;

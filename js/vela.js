@@ -41,10 +41,4 @@ document.addEventListener('DOMContentLoaded', function() {
     if (mouseXpercentage && mouseYpercentage) {
         updateGradientPosition(mouseXpercentage, mouseYpercentage);
     }
-
-    bodyGradient.addEventListener('mouseenter', function() {
-        document.querySelectorAll('a').forEach(function(link) {
-            link.style.cursor = 'none';
-        });
-    });
 });
