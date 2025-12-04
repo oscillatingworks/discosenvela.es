@@ -150,6 +150,7 @@ div.logo:hover .logo-in {
     left: 0px;
     width: 100%;
     cursor: none;
+    will-change: background;
 
     /*Fallback if gradients don't work */
     background: #7e8aed;
