@@ -5,14 +5,21 @@ function updateGradientPosition(x, y) {
     bodyGradient.style.setProperty('--mouse-y', y + '%');
 }
 
+let ticking = false;
 document.addEventListener('mousemove', function(event) {
-    const windowWidth = window.innerWidth;
-    const windowHeight = window.innerHeight;
+    if (!ticking) {
+        requestAnimationFrame(function() {
+            const windowWidth = window.innerWidth;
+            const windowHeight = window.innerHeight;
 
-    const mouseXpercentage = Math.round(event.pageX / windowWidth * 100);
-    const mouseYpercentage = Math.round(event.pageY / windowHeight * 100);
+            const mouseXpercentage = Math.round(event.pageX / windowWidth * 100);
+            const mouseYpercentage = Math.round(event.pageY / windowHeight * 100);
 
-    updateGradientPosition(mouseXpercentage, mouseYpercentage);
+            updateGradientPosition(mouseXpercentage, mouseYpercentage);
+            ticking = false;
+        });
+        ticking = true;
+    }
 });
 
 document.addEventListener('click', function(event) {
