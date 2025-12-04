@@ -1,5 +1,10 @@
 const bodyGradient = document.querySelector('.body-gradient');
 
+function updateGradientPosition(x, y) {
+    bodyGradient.style.setProperty('--mouse-x', x + '%');
+    bodyGradient.style.setProperty('--mouse-y', y + '%');
+}
+
 document.addEventListener('mousemove', function(event) {
     const windowWidth = window.innerWidth;
     const windowHeight = window.innerHeight;
@@ -7,7 +12,7 @@ document.addEventListener('mousemove', function(event) {
     const mouseXpercentage = Math.round(event.pageX / windowWidth * 100);
     const mouseYpercentage = Math.round(event.pageY / windowHeight * 100);
 
-    bodyGradient.style.background = `radial-gradient(circle at ${mouseXpercentage}% ${mouseYpercentage}%, #e5f96a,4%,#7e8aed,95%,#ECECE2)`;
+    updateGradientPosition(mouseXpercentage, mouseYpercentage);
 });
 
 document.addEventListener('click', function(event) {
@@ -26,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const mouseYpercentage = sessionStorage.getItem("mouseY");
 
     if (mouseXpercentage && mouseYpercentage) {
-        bodyGradient.style.background = `radial-gradient(circle at ${mouseXpercentage}% ${mouseYpercentage}%, #e5f96a,4%,#7e8aed,95%,#ECECE2)`;
+        updateGradientPosition(mouseXpercentage, mouseYpercentage);
     }
 });
 
