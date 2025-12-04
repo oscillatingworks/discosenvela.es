@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
             ticking = true;
         }
-    });
+    }, { passive: true });
 
     document.addEventListener('click', function(event) {
         const windowWidth = window.innerWidth;
