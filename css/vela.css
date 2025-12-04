@@ -1,26 +1,14 @@
 /*!
- * Start Bootstrap - Stylish Portfolio Bootstrap Theme (http://startbootstrap.com)
- * Code licensed under the Apache License v2.0.
- * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ * VELA - Record Label Website Styles
+ * Based on Start Bootstrap - Stylish Portfolio Bootstrap Theme
+ * Licensed under the Apache License v2.0
  */
 
-/* Global Styles */
+/* ==========================================================================
+   Fonts
+   Custom typography using Beatrice font family
+   ========================================================================== */
 
-html,
-body {
-    width: 100%;
-    height: 100%;
-}
-
-body {
-    font-weight: 300;
-    color: #ECECE2;
-    font-family: 'Beatrice', sans-serif;
-    overflow-x: hidden;
-    caret-color: transparent;
-}
-
-/* Fonts */
 @font-face {
     font-family: 'Beatrice';
     src: url("../fonts/BeatriceRegular.otf") format("opentype"),
@@ -38,50 +26,95 @@ body {
     font-display: swap;
 }
 
-/* Custom Horizontal Rule */
+/* ==========================================================================
+   Base Styles
+   Global defaults for the document
+   ========================================================================== */
 
-hr.small {
-    max-width: 100px;
-    border-color: #4bfaf2;
+html,
+body {
+    width: 100%;
+    height: 100%;
 }
 
-hr.dark {
-    border-color: #000;
+body {
+    font-weight: 300;
+    color: #ECECE2;
+    font-family: 'Beatrice', sans-serif;
+    overflow-x: hidden;
+    caret-color: transparent; /* Hides text cursor for a cleaner look */
 }
 
-/* Links with custom color */
+/* ==========================================================================
+   Text Selection
+   Custom colors when users select text on the page
+   ========================================================================== */
+
+::-moz-selection {
+    color: #7E8AED;
+    background: #4955B5;
+}
+
+::selection {
+    color: #e5f96a;
+    background: #4955B5;
+}
+
+/* ==========================================================================
+   Links
+   Styling for anchor elements across the site
+   ========================================================================== */
 
 a {
     color: #EFEFED;
     text-decoration: none;
-    cursor: crosshair;
-}
-
-.body-gradient a {
-    cursor: none;
+    cursor: crosshair; /* Distinctive cursor style for links */
 }
 
 a:hover {
-    color: #E5F96A;
+    color: #E5F96A; /* Yellow highlight on hover */
     font-style: italic;
 }
 
 a.highlight {
-    color: #e5f96a;
+    color: #e5f96a; /* Pre-highlighted links (used in Information page) */
 }
 
-/* Selected Text */
-::-moz-selection { /* Code for Firefox */
-  color: #7E8AED;
-  background: #4955B5;
+/* ==========================================================================
+   Page Backgrounds
+   Two modes: gradient (index) and solid color (subpages)
+   ========================================================================== */
+
+/* Index page: Interactive radial gradient that follows the mouse cursor */
+.body-gradient {
+    --mouse-x: 0%;
+    --mouse-y: 0%;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    cursor: none; /* Cursor hidden; gradient acts as visual feedback */
+    will-change: background; /* GPU optimization hint */
+    background: #7e8aed; /* Fallback for older browsers */
+    background: radial-gradient(circle at var(--mouse-x) var(--mouse-y), #e5f96a, 4%, #7e8aed, 95%, #ECECE2);
 }
 
-::selection {
-  color: #e5f96a;
-  background: #4955B5;
+/* Hide cursor on links too when on gradient page */
+.body-gradient a {
+    cursor: none;
 }
 
-/* Header */
+/* Subpages (Releases, Tapes, Information): Static purple background */
+.no-body-gradient {
+    position: sticky;
+    background: #7e8aed;
+    cursor: default;
+}
+
+/* ==========================================================================
+   Header & Navigation
+   Logo and navigation links at the top of every page
+   ========================================================================== */
 
 header {
     width: 100%;
@@ -100,10 +133,8 @@ header h1.logo {
     font-weight: bold;
 }
 
-div.logo .logo-out {
-    width: 11em;
-}
-
+/* Logo image swap effect: shows alternate logo on hover */
+div.logo .logo-out,
 div.logo .logo-in {
     width: 11em;
 }
@@ -120,6 +151,7 @@ div.logo:hover .logo-in {
     display: inline;
 }
 
+/* Header responsive adjustments */
 @media (max-width: 767px) {
     header h1.logo {
         font-size: 2em;
@@ -127,9 +159,7 @@ div.logo:hover .logo-in {
     header h1 {
         font-size: 1em;
     }
-    div.logo .logo-out {
-        width: 6em;
-    }
+    div.logo .logo-out,
     div.logo .logo-in {
         width: 6em;
     }
@@ -137,39 +167,23 @@ div.logo:hover .logo-in {
 
 @media (max-width: 360px) {
     header {
-        display: block;
+        display: block; /* Stack navigation vertically on very small screens */
     }
 }
 
-/* Body with gradient */
-.body-gradient {
-    --mouse-x: 0%;
-    --mouse-y: 0%;
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    width: 100%;
-    cursor: none;
-    will-change: background;
+/* ==========================================================================
+   Article / Main Content
+   Primary content area for releases, tapes, and information
+   ========================================================================== */
 
-    /*Fallback if gradients don't work */
-    background: #7e8aed;
-    background: radial-gradient(circle at var(--mouse-x) var(--mouse-y),#e5f96a,4%,#7e8aed,95%,#ECECE2);
-}
-
-/* Body with no gradient */
-.no-body-gradient {
-    position: sticky;
-
-    background: #7e8aed;
-    cursor: default;
-}
-
-/* Article */
 article {
     font-size: 1.5em;
     padding-right: 3%;
-    padding-bottom: 50px;
+    padding-bottom: 50px; /* Space above fixed footer */
+}
+
+article.es {
+    color: #ECECE2; /* Spanish text styling (if needed) */
 }
 
 @media (max-width: 767px) {
@@ -178,33 +192,37 @@ article {
     }
 }
 
-article.es {
-    color:#ECECE2;
-}
+/* ==========================================================================
+   Footer
+   Fixed footer with social links at the bottom of every page
+   ========================================================================== */
 
-/* Footer */
 footer {
-  position: fixed;
-  padding: 25px 0px 0px 8px;
-  margin-left: -8px;
-  bottom: 0;
-  width: 100%;
-  /* Height of the footer*/
-  height: 50px;
+    position: fixed;
+    padding: 25px 0px 0px 8px;
+    margin-left: -8px;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
 }
 
+/* Solid background for subpages (gradient page footer is transparent) */
 footer.no-index {
     background: #7e8aed;
 }
 
 @media (max-width: 767px) {
-  footer {
-      font-size: 0.66em;
-      height: 30px;
-  }
+    footer {
+        font-size: 0.66em;
+        height: 30px;
+    }
 }
 
-/* SoundCloud embed captions */
+/* ==========================================================================
+   SoundCloud Embeds (Tapes page)
+   Styling for the caption text below SoundCloud player iframes
+   ========================================================================== */
+
 .soundcloud-caption {
     font-size: 10px;
     color: #cccccc;
@@ -220,4 +238,18 @@ footer.no-index {
 .soundcloud-caption a {
     color: #cccccc;
     text-decoration: none;
+}
+
+/* ==========================================================================
+   Utility Classes (currently unused)
+   Horizontal rules for potential future use
+   ========================================================================== */
+
+hr.small {
+    max-width: 100px;
+    border-color: #4bfaf2;
+}
+
+hr.dark {
+    border-color: #000;
 }
