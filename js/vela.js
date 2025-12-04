@@ -13,8 +13,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 const windowWidth = window.innerWidth;
                 const windowHeight = window.innerHeight;
 
-                const mouseXpercentage = Math.round(event.pageX / windowWidth * 100);
-                const mouseYpercentage = Math.round(event.pageY / windowHeight * 100);
+                const mouseXpercentage = Math.round(event.clientX / windowWidth * 100);
+                const mouseYpercentage = Math.round(event.clientY / windowHeight * 100);
 
                 updateGradientPosition(mouseXpercentage, mouseYpercentage);
                 ticking = false;
@@ -27,8 +27,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const windowWidth = window.innerWidth;
         const windowHeight = window.innerHeight;
 
-        const mouseXpercentage = Math.round(event.pageX / windowWidth * 100);
-        const mouseYpercentage = Math.round(event.pageY / windowHeight * 100);
+        const mouseXpercentage = Math.round(event.clientX / windowWidth * 100);
+        const mouseYpercentage = Math.round(event.clientY / windowHeight * 100);
 
         sessionStorage.setItem("mouseX", mouseXpercentage);
         sessionStorage.setItem("mouseY", mouseYpercentage);
