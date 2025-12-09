@@ -93,7 +93,8 @@ a.highlight {
     top: 0px;
     left: 0px;
     width: 100%;
-    cursor: none; /* Cursor hidden; gradient acts as visual feedback */
+    /* Transparent 1x1 GIF cursor - Chrome ignores 'cursor: none' in some cases */
+    cursor: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'), none;
     will-change: background; /* GPU optimization hint */
     background: #7e8aed; /* Fallback for older browsers */
     background: radial-gradient(circle at var(--mouse-x) var(--mouse-y), #e5f96a, 4%, #7e8aed, 95%, #ECECE2);
@@ -101,7 +102,7 @@ a.highlight {
 
 /* Hide cursor on links too when on gradient page */
 .body-gradient a {
-    cursor: none;
+    cursor: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'), none;
 }
 
 /* Subpages (Releases, Tapes, Information): Static purple background */
