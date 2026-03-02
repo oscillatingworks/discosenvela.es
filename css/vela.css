@@ -242,6 +242,58 @@ footer.no-index {
 }
 
 /* ==========================================================================
+   Release Banner (Index page)
+   Featured release box with artwork and streaming links
+   ========================================================================== */
+
+.release-banner {
+    display: flex;
+    align-items: center;
+    gap: 1.2em;
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    padding: 1em;
+    max-width: 500px;
+}
+
+.release-artwork {
+    width: 120px;
+    height: 120px;
+    border-radius: 4px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.release-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15em;
+}
+
+.release-info p {
+    margin: 0;
+}
+
+.release-title {
+    font-style: italic;
+}
+
+.release-links {
+    font-size: 0.8em;
+}
+
+@media (max-width: 767px) {
+    .release-banner {
+        max-width: 100%;
+    }
+
+    .release-artwork {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+/* ==========================================================================
    Utility Classes (currently unused)
    Horizontal rules for potential future use
    ========================================================================== */
