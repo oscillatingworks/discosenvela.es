@@ -306,3 +306,72 @@ hr.small {
 hr.dark {
     border-color: #000;
 }
+
+/* ==========================================================================
+   Links Page (linktree-style)
+   Stacked link buttons for /links page
+   ========================================================================== */
+
+.links-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75em;
+    max-width: 600px;
+    margin: 1.5em auto 0;
+}
+
+.link-button {
+    display: block;
+    padding: 0.9em 1em;
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    font-size: 1.1em;
+    text-align: center;
+    transition: background 0.2s;
+}
+
+.link-button:hover {
+    background: #E5F96A;
+    color: #7e8aed;
+    box-shadow: 0 0 15px rgba(229, 249, 106, 0.5);
+}
+
+.link-release {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    text-align: left;
+    cursor: default;
+}
+
+.link-release:hover {
+    background: rgba(0, 0, 0, 0.15);
+    color: #EFEFED;
+}
+
+.link-release-artwork {
+    width: 80px;
+    height: 80px;
+    border-radius: 4px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.link-release-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2em;
+}
+
+.link-release-name {
+    display: block;
+    font-style: italic;
+}
+
+.link-release-platforms {
+    font-size: 0.8em;
+}
+
+.link-release-platforms a:hover {
+    color: #E5F96A;
+}

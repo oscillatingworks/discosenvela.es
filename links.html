@@ -1,0 +1,77 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="VELA — Links. Independent record label based in València, Spain.">
+    <meta name="author" content="Fernando Álvarez">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
+
+    <!-- Preload critical fonts -->
+    <link rel="preload" href="fonts/BeatriceRegular.woff" as="font" type="font/woff" crossorigin>
+
+    <title>VELA — Links</title>
+
+    <!-- Custom CSS -->
+    <link href="css/vela.css" rel="stylesheet">
+
+</head>
+
+<body class="body-gradient">
+    <header>
+        <div class="logo"><a href="/">
+            <img class="logo-out" src="img/logo.svg"
+                 alt="VELA logo">
+            <img class="logo-in" src="img/logo_aux.svg"
+                 alt="VELA logo hover">
+        </a></div>
+        <h1>&nbsp<a href="/releases">/ Releases</a></h1>
+        <h1>&nbsp<a href="/tapes">/ Tapes</a></h1>
+        <h1>&nbsp<a href="/information">/ Information</a></h1>
+    </header>
+
+    <article>
+        <nav class="links-list">
+            {% for link in site.data.links %}
+            {% if link.type == "release" or link.type == "single" %}
+            <div class="link-button link-release">
+                <img class="link-release-artwork" src="{{ link.image }}" alt="{{ link.name }}">
+                <div class="link-release-info">
+                    <span class="link-release-name">{{ link.name }}</span>
+                    <span class="link-release-platforms">
+                        {% for platform in link.platforms %}
+                        <a href="{{ platform.url }}" target="_blank" rel="noopener noreferrer">{{ platform.name }}</a>{% unless forloop.last %} / {% endunless %}
+                        {% endfor %}
+                    </span>
+                </div>
+            </div>
+            {% elsif link.image %}
+            <a class="link-button link-release" href="{{ link.url }}" target="_blank" rel="noopener noreferrer">
+                <img class="link-release-artwork" src="{{ link.image }}" alt="{{ link.name }}">
+                <span class="link-release-name">{{ link.name }}</span>
+            </a>
+            {% else %}
+            <a class="link-button" href="{{ link.url }}" target="_blank" rel="noopener noreferrer">{{ link.name }}</a>
+            {% endif %}
+            {% endfor %}
+        </nav>
+    </article>
+
+    <footer>
+        © 2026 <a href="mailto:discosenvela@gmail.com" target="_blank" rel="noopener noreferrer">@discosenvela</a> /
+          <a href="https://instagram.com/discosenvela" target="_blank" rel="noopener noreferrer">Instagram</a> /
+          <a href="https://soundcloud.com/discosenvela" target="_blank" rel="noopener noreferrer">SoundCloud</a> /
+          <a href="https://discosenvela.bandcamp.com" target="_blank" rel="noopener noreferrer">Bandcamp</a>
+    </footer>
+
+    <!-- Custom JavaScript -->
+    <script src="js/vela.js"></script>
+
+</body>
+</html>
