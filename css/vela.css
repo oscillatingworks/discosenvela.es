@@ -375,3 +375,24 @@ hr.dark {
 .link-release-platforms a:hover {
     color: #E5F96A;
 }
+
+@media (max-width: 767px) {
+    .links-list {
+        max-width: 100%;
+        padding: 0 0.5em;
+    }
+
+    .link-button {
+        font-size: 0.9em;
+        padding: 0.7em 0.8em;
+    }
+
+    .link-release-artwork {
+        width: 60px;
+        height: 60px;
+    }
+
+    .link-release-platforms {
+        font-size: 0.75em;
+    }
+}
