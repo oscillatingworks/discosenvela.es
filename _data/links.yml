@@ -1,3 +1,12 @@
+- name: "Revendless / Némora"
+  type: single
+  image: img/releases/revendless-nemora.jpg
+  platforms:
+    - name: Spotify
+      url: https://open.spotify.com/album/7M432WKla8X0w42ecViooK?si=aBBEupjfRPSYEMkRbL-Fqg
+    - name: Apple Music
+      url: https://music.apple.com/es/album/n%C3%A9mora/1885915543?i=1885915547&l=en-GB
+
 - name: "Revendless / Amanecer"
   type: single
   image: img/releases/revendless-amanecer.jpg
