@@ -1,11 +1,3 @@
-- name: "TODA VELA / Complete Catalog"
-  url: https://open.spotify.com/playlist/7tM5FUv52kuOIBi3zNqR5m?si=fa3ac6d6758f44ac
-  image: img/releases/toda-vela.jpg
-
-- name: "TAPE SONGS / Tracks from VELA TAPES"
-  url: https://open.spotify.com/playlist/2T8srVbUikt3yohexh1sHk?si=af6b278d1fc54f16
-  image: img/releases/tape-songs.jpg
-
 - name: "Revendless / Amanecer"
   type: single
   image: img/releases/revendless-amanecer.jpg
@@ -58,3 +50,11 @@
       url: https://open.spotify.com/album/4mLTAjwEuLHqBsiIPH9w3c?si=ki-SFMA0Ru-g-LAtyOAlVA
     - name: Apple Music
       url: https://music.apple.com/es/album/delta-b/1755952271?l=en-GB
+
+- name: "TODA VELA / Complete Catalog"
+  url: https://open.spotify.com/playlist/7tM5FUv52kuOIBi3zNqR5m?si=fa3ac6d6758f44ac
+  image: img/releases/toda-vela.jpg
+
+- name: "TAPE SONGS / Tracks from VELA TAPES"
+  url: https://open.spotify.com/playlist/2T8srVbUikt3yohexh1sHk?si=af6b278d1fc54f16
+  image: img/releases/tape-songs.jpg
