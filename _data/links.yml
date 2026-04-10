@@ -1,3 +1,8 @@
+- name: "Velada 004 / RA"
+  url: https://ra.co/events/2415671
+  image: img/events/velada004.png
+  image_position: bottom
+
 - name: "Revendless / Némora"
   type: single
   image: img/releases/revendless-nemora.jpg

@@ -32,7 +32,7 @@
             {% for link in site.data.links %}
             {% if link.type == "release" or link.type == "single" %}
             <div class="link-button link-release">
-                <img class="link-release-artwork" src="{{ link.image }}" alt="{{ link.name }}">
+                <img class="link-release-artwork" src="{{ link.image }}" alt="{{ link.name }}"{% if link.image_position %} style="object-position: {{ link.image_position }}"{% endif %}>
                 <div class="link-release-info">
                     <span class="link-release-name">{{ link.name }}</span>
                     <span class="link-release-platforms">
@@ -44,7 +44,7 @@
             </div>
             {% elsif link.image %}
             <a class="link-button link-release" href="{{ link.url }}" target="_blank" rel="noopener noreferrer">
-                <img class="link-release-artwork" src="{{ link.image }}" alt="{{ link.name }}">
+                <img class="link-release-artwork" src="{{ link.image }}" alt="{{ link.name }}"{% if link.image_position %} style="object-position: {{ link.image_position }}"{% endif %}>
                 <span class="link-release-name">{{ link.name }}</span>
             </a>
             {% else %}
