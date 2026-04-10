@@ -1,3 +1,9 @@
+- name: "Velada 004 / 25.04.26 / Tickets"
+  url: https://movingtickets.com/Entradas-Velada-004-en-CC-Proyecto-Juby-Valencia/
+  image: img/events/velada004.png
+  image_position: bottom
+  highlight: true
+
 - name: "Velada 004 / 25.04.26 / RA"
   url: https://ra.co/events/2415671
   image: img/events/velada004.png
