@@ -394,6 +394,21 @@ hr.dark {
     color: #E5F96A;
 }
 
+@keyframes highlight-pulse {
+    0%, 100% {
+        background: rgba(0, 0, 0, 0.15);
+        box-shadow: none;
+    }
+    50% {
+        background: rgba(229, 249, 106, 0.15);
+        box-shadow: 0 0 15px rgba(229, 249, 106, 0.5);
+    }
+}
+
+.link-highlight {
+    animation: highlight-pulse 1.5s ease-in-out infinite;
+}
+
 @media (max-width: 767px) {
     .links-list {
         max-width: 100%;
