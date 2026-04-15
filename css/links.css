@@ -1,0 +1,225 @@
+/* ==========================================================================
+   Links Page (linktree-style)
+   Stacked link buttons + layered nebula background
+   Loaded only by /links page in addition to vela.css
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Layered Nebula Background (Tropical Indigo base + VELA palette clouds)
+   -------------------------------------------------------------------------- */
+
+.links-page {
+    background-color: #7E8AED;
+}
+
+.links-page article,
+.links-page footer {
+    position: relative;
+    z-index: 10;
+}
+
+/* Each .o is a fixed full-screen layer scrolling at its own pace */
+.o {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+/* Layer 1: base nebula glow (static) */
+.o1 {
+    z-index: 1;
+    background:
+        radial-gradient(ellipse 60% 40% at 20% 25%, rgba(229, 249, 106, 0.30), transparent 70%),
+        radial-gradient(ellipse 50% 50% at 80% 20%, rgba(236, 236, 226, 0.18), transparent 70%),
+        radial-gradient(ellipse 70% 50% at 70% 85%, rgba(77, 88, 0, 0.45), transparent 70%),
+        radial-gradient(ellipse 45% 45% at 15% 90%, rgba(18, 18, 18, 0.30), transparent 70%);
+    filter: blur(20px);
+}
+
+/* Layer 2: stars — slow leftward drift, half opacity */
+.o2 {
+    z-index: 2;
+    opacity: 0.5;
+    background-image:
+        radial-gradient(1.5px 1.5px at 40px 60px, #ECECE2, transparent 100%),
+        radial-gradient(1px 1px at 130px 220px, #ECECE2, transparent 100%),
+        radial-gradient(2px 2px at 250px 90px, #EFEFED, transparent 100%),
+        radial-gradient(1px 1px at 320px 310px, #ECECE2, transparent 100%),
+        radial-gradient(1.5px 1.5px at 410px 150px, #EFEFED, transparent 100%),
+        radial-gradient(1px 1px at 70px 380px, #ECECE2, transparent 100%),
+        radial-gradient(1px 1px at 510px 40px, #ECECE2, transparent 100%),
+        radial-gradient(1px 1px at 580px 270px, #ECECE2, transparent 100%),
+        radial-gradient(2px 2px at 640px 470px, #EFEFED, transparent 100%),
+        radial-gradient(1px 1px at 720px 360px, #ECECE2, transparent 100%),
+        radial-gradient(1.5px 1.5px at 200px 560px, #ECECE2, transparent 100%),
+        radial-gradient(1px 1px at 350px 600px, #ECECE2, transparent 100%),
+        radial-gradient(1px 1px at 480px 700px, #ECECE2, transparent 100%),
+        radial-gradient(1.5px 1.5px at 30px 720px, #EFEFED, transparent 100%),
+        radial-gradient(1px 1px at 770px 110px, #ECECE2, transparent 100%);
+    background-size: 800px 800px;
+    background-repeat: repeat;
+    animation: nebula-scroll 200s infinite linear;
+}
+
+/* Layer 3: nebula clouds — drift right */
+.o3 {
+    z-index: 3;
+    background-image:
+        radial-gradient(ellipse 35% 40% at 25% 30%, rgba(229, 249, 106, 0.18), transparent 60%),
+        radial-gradient(ellipse 30% 35% at 70% 60%, rgba(77, 88, 0, 0.25), transparent 60%),
+        radial-gradient(ellipse 25% 30% at 50% 85%, rgba(236, 236, 226, 0.12), transparent 60%);
+    background-size: 1200px 1200px;
+    background-repeat: repeat;
+    filter: blur(25px);
+    animation: nebula-scroll-reverse 200s infinite linear;
+}
+
+/* Layer 4: wispy slow clouds — drift left */
+.o4 {
+    z-index: 3;
+    background-image:
+        radial-gradient(ellipse 45% 30% at 30% 40%, rgba(236, 236, 226, 0.10), transparent 65%),
+        radial-gradient(ellipse 35% 25% at 75% 70%, rgba(144, 136, 146, 0.12), transparent 65%),
+        radial-gradient(ellipse 30% 30% at 50% 20%, rgba(229, 249, 106, 0.08), transparent 65%);
+    background-size: 1600px 1600px;
+    background-repeat: repeat;
+    filter: blur(35px);
+    animation: nebula-scroll 400s infinite linear;
+}
+
+@keyframes nebula-scroll {
+    100% { background-position: -3000px 0; }
+}
+
+@keyframes nebula-scroll-reverse {
+    100% { background-position: 3000px 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .o2, .o3, .o4 { animation: none; }
+}
+
+/* --------------------------------------------------------------------------
+   Avatar + Link buttons
+   -------------------------------------------------------------------------- */
+
+.links-avatar {
+    text-align: center;
+    margin: 1.5em 0 1em;
+}
+
+.links-avatar img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: box-shadow 0.2s;
+}
+
+.links-avatar img:hover {
+    box-shadow: 0 0 20px rgba(229, 249, 106, 0.7);
+}
+
+.links-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75em;
+    max-width: 600px;
+    margin: 1.5em auto 0;
+    padding-bottom: 60px;
+}
+
+.link-button {
+    display: block;
+    padding: 0.9em 1em;
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    font-size: 1.1em;
+    text-align: center;
+    transition: background 0.2s;
+}
+
+.link-button:hover {
+    background: #E5F96A;
+    color: #7e8aed;
+    box-shadow: 0 0 15px rgba(229, 249, 106, 0.5);
+}
+
+.link-release {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    text-align: left;
+    cursor: default;
+}
+
+.link-release:hover {
+    background: rgba(0, 0, 0, 0.15);
+    color: #EFEFED;
+}
+
+.link-release-artwork {
+    width: 80px;
+    height: 80px;
+    border-radius: 4px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.link-release-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2em;
+}
+
+.link-release-name {
+    display: block;
+    font-style: italic;
+}
+
+.link-release-platforms {
+    font-size: 0.8em;
+}
+
+.link-release-platforms a:hover {
+    color: #E5F96A;
+}
+
+@keyframes highlight-pulse {
+    0%, 100% {
+        background: rgba(0, 0, 0, 0.15);
+        box-shadow: none;
+    }
+    50% {
+        background: rgba(229, 249, 106, 0.15);
+        box-shadow: 0 0 15px rgba(229, 249, 106, 0.5);
+    }
+}
+
+.link-highlight {
+    animation: highlight-pulse 1.5s ease-in-out infinite;
+}
+
+@media (max-width: 767px) {
+    .links-list {
+        max-width: 100%;
+        padding: 0 0.5em;
+    }
+
+    .link-button {
+        font-size: 0.9em;
+        padding: 0.7em 0.8em;
+    }
+
+    .link-release-artwork {
+        width: 60px;
+        height: 60px;
+    }
+
+    .link-release-platforms {
+        font-size: 0.75em;
+    }
+}
