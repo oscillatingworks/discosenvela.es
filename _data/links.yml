@@ -4,6 +4,10 @@
   image_position: bottom
   highlight: true
 
+- name: "La Rítmica / 22.05.26 / Tickets"
+  url: https://xceed.me/en/valencia/event/ecco-x-vela-x-vdg/227112/channel/la-ritmica-experience
+  image: img/events/ecco-vela-vdg.jpg
+
 - name: "Velada 004 / 25.04.26 / RA"
   url: https://ra.co/events/2415671
   image: img/events/velada004.png
