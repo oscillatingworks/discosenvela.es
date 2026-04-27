@@ -1,12 +1,16 @@
-- name: "Velada 004 / 25.04.26 / Tickets"
-  url: https://movingtickets.com/Entradas-Velada-004-en-CC-Proyecto-Juby-Valencia/
-  image: img/events/velada004.png
-  image_position: bottom
-  highlight: true
-
 - name: "La Rítmica / 22.05.26 / Tickets"
   url: https://xceed.me/en/valencia/event/ecco-x-vela-x-vdg/227112/channel/la-ritmica-experience
   image: img/events/ecco-vela-vdg.jpg
+  highlight: true
+
+- name: "Revendless / Superposición"
+  type: single
+  image: img/releases/revendless-superposicion.jpg
+  platforms:
+    - name: Spotify
+      url: https://open.spotify.com/album/6pMHYPGpQ0NN9XJNGuoepz?si=wK557LIMS5ucpK0ukGXeAw
+    - name: Apple Music
+      url: https://music.apple.com/es/album/superposici%C3%B3n-single/1892436022?l=en-GB
 
 - name: "Velada 004 / 25.04.26 / RA"
   url: https://ra.co/events/2415671
