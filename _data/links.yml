@@ -3,6 +3,12 @@
   image: img/events/ecco-vela-vdg.jpg
   highlight: true
 
+- name: "Cines Babel / 13.05.26 / Tickets"
+  url: https://www.reservaentradas.com/sesiones/valencia/cinesbabel/30-anys-per-revendless/2288?proximamente=true&
+  image: img/events/cines-babel-revendless.jpg
+  image_position: bottom
+  highlight: true
+
 - name: "Revendless / Superposición"
   type: single
   image: img/releases/revendless-superposicion.jpg
