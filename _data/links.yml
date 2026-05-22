@@ -3,6 +3,17 @@
   image: img/events/ecco-vela-vdg.jpg
   highlight: true
 
+- name: "Revendless / Nostalgia"
+  type: release
+  image: img/releases/vela005.jpg
+  platforms:
+    - name: Bandcamp
+      url: https://revendless.bandcamp.com/album/nostalgia
+    - name: Spotify
+      url: https://open.spotify.com/album/48neC9lEQFPTOT6AS772hj?si=wSztPol2QdmFsNh3W4BikA
+    - name: Apple Music
+      url: https://music.apple.com/es/album/nostalgia/6768358270?l=en-GB
+
 - name: "Cines Babel / 13.05.26 / Tickets"
   url: https://www.reservaentradas.com/sesiones/valencia/cinesbabel/30-anys-per-revendless/2288?proximamente=true&
   image: img/events/cines-babel-revendless.jpg
