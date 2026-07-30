@@ -1,7 +1,14 @@
+- name: "413x / No Sé Dónde Me He Ido"
+  type: release
+  image: img/releases/vela004-cd.jpg
+  platforms:
+    - name: Limited Edition CD
+      url: https://discosenvela.bandcamp.com/merch
+  highlight: true
+
 - name: "La Rítmica / 22.05.26 / Tickets"
   url: https://xceed.me/en/valencia/event/ecco-x-vela-x-vdg/227112/channel/la-ritmica-experience
   image: img/events/ecco-vela-vdg.jpg
-  highlight: true
 
 - name: "Revendless / Nostalgia"
   type: release
