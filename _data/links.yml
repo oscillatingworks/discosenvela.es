@@ -1,10 +1,14 @@
+- name: "Volumens / 15.10.2026 / Tickets"
+  url: https://ra.co/events/2489043
+  image: img/events/volumens-vela-showcase.jpg
+  highlight: true
+
 - name: "413x / No Sé Dónde Me He Ido"
   type: release
   image: img/releases/vela004-cd.jpg
   platforms:
     - name: Limited Edition CD
       url: https://discosenvela.bandcamp.com/merch
-  highlight: true
 
 - name: "La Rítmica / 22.05.26 / Tickets"
   url: https://xceed.me/en/valencia/event/ecco-x-vela-x-vdg/227112/channel/la-ritmica-experience
