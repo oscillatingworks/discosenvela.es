@@ -10,10 +10,6 @@
     - name: Limited Edition CD
       url: https://discosenvela.bandcamp.com/merch
 
-- name: "La Rítmica / 22.05.26 / Tickets"
-  url: https://xceed.me/en/valencia/event/ecco-x-vela-x-vdg/227112/channel/la-ritmica-experience
-  image: img/events/ecco-vela-vdg.jpg
-
 - name: "Revendless / Nostalgia"
   type: release
   image: img/releases/vela005.jpg
@@ -24,6 +20,10 @@
       url: https://open.spotify.com/album/48neC9lEQFPTOT6AS772hj?si=wSztPol2QdmFsNh3W4BikA
     - name: Apple Music
       url: https://music.apple.com/es/album/nostalgia/6768358270?l=en-GB
+
+- name: "La Rítmica / 22.05.26 / Tickets"
+  url: https://xceed.me/en/valencia/event/ecco-x-vela-x-vdg/227112/channel/la-ritmica-experience
+  image: img/events/ecco-vela-vdg.jpg
 
 - name: "Cines Babel / 13.05.26 / Tickets"
   url: https://www.reservaentradas.com/sesiones/valencia/cinesbabel/30-anys-per-revendless/2288?proximamente=true&
@@ -39,7 +39,7 @@
     - name: Apple Music
       url: https://music.apple.com/es/album/superposici%C3%B3n-single/1892436022?l=en-GB
 
-- name: "Velada 004 / 25.04.26 / RA"
+- name: "Velada 004 / 25.04.26 / Tickets"
   url: https://ra.co/events/2415671
   image: img/events/velada004.png
   image_position: bottom
