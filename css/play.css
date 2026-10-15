@@ -11,7 +11,6 @@ html:has(.play-page) { overflow: hidden; }
 
 .play-page {
     width: auto;
-    overflow: hidden;
     background: #7E8AED; /* Seen only without WebGL */
     overscroll-behavior: none;
 }
@@ -61,6 +60,10 @@ html:has(.play-page) { overflow: hidden; }
 .play-page footer a {
     pointer-events: auto;
 }
+
+/* The header is 16px narrower than on the other pages, and on iPhone that
+   made each "/ Link" break after the slash. Keep each one on one line. */
+.play-page header h1 { white-space: nowrap; }
 
 /* ==========================================================================
    Playhead, brush and messages
