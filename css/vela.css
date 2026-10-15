@@ -127,6 +127,7 @@ header {
 header h1 {
     font-size: 2em;
     font-weight: normal;
+    white-space: nowrap; /* Never break "/ Link" after the slash */
 }
 
 header h1.logo {
@@ -154,6 +155,11 @@ div.logo:hover .logo-in {
 
 /* Header responsive adjustments */
 @media (max-width: 767px) {
+    /* The logo and links are sized in em, so they shrink with this font size.
+       Below about 390px wide, everything gets smaller to stay on one line. */
+    header {
+        font-size: min(1rem, 4.1vw);
+    }
     header h1.logo {
         font-size: 2em;
     }
@@ -166,11 +172,6 @@ div.logo:hover .logo-in {
     }
 }
 
-@media (max-width: 360px) {
-    header {
-        display: block; /* Stack navigation vertically on very small screens */
-    }
-}
 
 /* ==========================================================================
    Article / Main Content

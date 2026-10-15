@@ -61,10 +61,6 @@ html:has(.play-page) { overflow: hidden; }
     pointer-events: auto;
 }
 
-/* The header is 16px narrower than on the other pages, and on iPhone that
-   made each "/ Link" break after the slash. Keep each one on one line. */
-.play-page header h1 { white-space: nowrap; }
-
 /* ==========================================================================
    Playhead, brush and messages
    ========================================================================== */
