@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="VELA. Paint to play an ambient drone.">
+    <meta name="author" content="Fernando Álvarez">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
+
+    <!-- Preload critical fonts -->
+    <link rel="preload" href="fonts/BeatriceRegular.woff" as="font" type="font/woff" crossorigin>
+
+    <title>VELA</title>
+
+    <!-- Custom CSS -->
+    <link href="css/vela.css" rel="stylesheet">
+    <link href="css/play.css" rel="stylesheet">
+</head>
+
+<body class="play-page">
+    <canvas id="field" aria-hidden="true"></canvas>
+    <canvas id="paint" aria-label="Paint here to play"></canvas>
+    <div id="playhead" aria-hidden="true"></div>
+    <div id="brush" aria-hidden="true"></div>
+
+    <header>
+        <div class="logo"><a href="/">
+            <img class="logo-out" src="img/logo.svg"
+                 alt="VELA logo">
+            <img class="logo-in" src="img/logo_aux.svg"
+                 alt="VELA logo hover">
+        </a></div>
+        <h1>&nbsp<a href="/releases">/ Releases</a></h1>
+        <h1>&nbsp<a href="/tapes">/ Tapes</a></h1>
+        <h1>&nbsp<a href="/information">/ Information</a></h1>
+    </header>
+
+    <p id="cue">Paint to play</p>
+    <p id="flash" role="status"></p>
+
+    <aside id="tools">
+        <div id="swatches"></div>
+        <button type="button" id="thinner" aria-label="Thinner">−</button>
+        <span id="size" aria-hidden="true"></span>
+        <button type="button" id="thicker" aria-label="Thicker">+</button>
+        <span id="key"></span>
+        <span id="meter" title="Layers playing"></span>
+        <span id="layers"></span>
+        <button type="button" id="help" aria-label="Keys">?</button>
+        <dl id="keys" hidden>
+            <dt>1–5</dt><dd>color</dd>
+            <dt>[ ]</dt><dd>width</dd>
+            <dt>Z</dt><dd>undo</dd>
+            <dt>C</dt><dd>clear</dd>
+            <dt>N</dt><dd>new drone</dd>
+            <dt>M</dt><dd>mute</dd>
+            <dt>S</dt><dd>save image</dd>
+            <dt>R</dt><dd>record sound</dd>
+            <dt>H</dt><dd>hide panel</dd>
+            <dt>P</dt><dd>paint <button type="button" id="fade" aria-pressed="true" title="Click to change">fades</button></dd>
+        </dl>
+    </aside>
+    <button type="button" id="bare-toggle" aria-label="Show or hide the panel"></button>
+
+    <footer>
+        © 2026 <a href="mailto:discosenvela@gmail.com" target="_blank" rel="noopener noreferrer">@discosenvela</a> /
+          <a href="https://instagram.com/discosenvela" target="_blank" rel="noopener noreferrer">Instagram</a> /
+          <a href="https://soundcloud.com/discosenvela" target="_blank" rel="noopener noreferrer">SoundCloud</a> /
+          <a href="https://discosenvela.bandcamp.com" target="_blank" rel="noopener noreferrer">Bandcamp</a>
+    </footer>
+
+    <script type="module" src="js/play/main.js"></script>
+</body>
+</html>
