@@ -4,7 +4,13 @@
    Loaded only by /play in addition to vela.css
    ========================================================================== */
 
+/* vela.css gives the body width: 100% and the browser adds an 8px margin, so
+   the page is 8px wider than the screen. On iPhone the fixed panel then sits
+   off center. Let the body fit the screen. */
+html:has(.play-page) { overflow: hidden; }
+
 .play-page {
+    width: auto;
     overflow: hidden;
     background: #7E8AED; /* Seen only without WebGL */
     overscroll-behavior: none;
@@ -42,7 +48,14 @@
     pointer-events: none;
 }
 
-.play-page footer { position: fixed; }
+/* The same for the footer: fit it to the screen, padding included */
+.play-page footer {
+    position: fixed;
+    left: 0;
+    right: 0;
+    width: auto;
+    margin-left: 0;
+}
 
 .play-page header a,
 .play-page footer a {
@@ -132,6 +145,7 @@
     align-items: center;
     justify-content: flex-end;
     gap: 10px;
+    box-sizing: border-box;
     max-width: calc(100vw - 32px);
     padding: 8px 12px;
     border-radius: 8px;
@@ -308,7 +322,13 @@
 }
 
 @media (max-width: 767px) {
-    #tools { bottom: 52px; }
+    /* The panel fills the width, with the same margin on both sides */
+    #tools {
+        left: 16px;
+        bottom: 52px;
+        justify-content: center;
+    }
+
     #bare-toggle { bottom: 34px; }
 }
 
