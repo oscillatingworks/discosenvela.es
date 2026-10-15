@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="VELA. Paint to play an ambient drone.">
+    <meta name="description" content="VELA. Paint to play.">
     <meta name="author" content="Fernando Álvarez">
 
     <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
@@ -51,18 +51,18 @@
         <span id="meter" title="Layers playing"></span>
         <span id="layers"></span>
         <button type="button" id="help" aria-label="Keys">?</button>
-        <dl id="keys" hidden>
-            <dt>1–5</dt><dd>color</dd>
-            <dt>[ ]</dt><dd>width</dd>
-            <dt>Z</dt><dd>undo</dd>
-            <dt>C</dt><dd>clear</dd>
-            <dt>N</dt><dd>new drone</dd>
-            <dt>M</dt><dd>mute</dd>
-            <dt>S</dt><dd>save image</dd>
-            <dt>R</dt><dd>record sound</dd>
-            <dt>H</dt><dd>hide panel</dd>
-            <dt>P</dt><dd>paint <button type="button" id="fade" aria-pressed="true" title="Click to change">fades</button></dd>
-        </dl>
+        <div id="keys" hidden>
+            <span class="row"><kbd>1–5</kbd><span>color</span></span>
+            <span class="row"><kbd>[ ]</kbd><span>width</span></span>
+            <button type="button" class="row" data-action="undo"><kbd>Z</kbd><span>undo</span></button>
+            <button type="button" class="row" data-action="clear"><kbd>C</kbd><span>clear</span></button>
+            <button type="button" class="row" data-action="reroll"><kbd>N</kbd><span>new drone</span></button>
+            <button type="button" class="row" data-action="mute"><kbd>M</kbd><span id="mute-label">mute</span></button>
+            <button type="button" class="row" data-action="save"><kbd>S</kbd><span>save image</span></button>
+            <button type="button" class="row" data-action="record"><kbd>R</kbd><span id="record-label">record sound</span></button>
+            <button type="button" class="row" data-action="hide"><kbd>H</kbd><span>hide panel</span></button>
+            <button type="button" class="row" data-action="fade" aria-pressed="true"><kbd>P</kbd><span>paint <u id="fade">fades</u></span></button>
+        </div>
     </aside>
     <button type="button" id="bare-toggle" aria-label="Show or hide the panel"></button>
 

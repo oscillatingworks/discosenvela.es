@@ -154,7 +154,11 @@
     cursor: crosshair;
 }
 
-#tools button:hover { color: #E5F96A; }
+#tools button { touch-action: manipulation; }
+
+@media (hover: hover) {
+    #tools button:hover { color: #E5F96A; }
+}
 
 #swatches {
     display: flex;
@@ -223,18 +227,29 @@
     50% { opacity: 0.2; }
 }
 
+/* Each row is a key and what it does. A tap on a row does the same as the key. */
 #keys {
     flex-basis: 100%;
     display: grid;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: auto auto;
     gap: 2px 10px;
     margin: 4px 0 0;
 }
 
 #keys[hidden] { display: none; }
 
-#keys dt { color: #E5F96A; text-align: right; }
-#keys dd { margin: 0; }
+#keys .row {
+    display: grid;
+    grid-template-columns: 2.4em auto;
+    gap: 10px;
+    text-align: left;
+}
+
+#keys kbd {
+    font: inherit;
+    color: #E5F96A;
+    text-align: right;
+}
 
 #keys #fade { text-decoration: underline dotted; text-underline-offset: 3px; }
 
@@ -255,6 +270,42 @@
 }
 
 .bare #bare-toggle { background: #ECECE2; }
+
+/* A larger area to tap than the dot you see */
+#bare-toggle::before {
+    content: "";
+    position: absolute;
+    inset: -14px;
+}
+
+/* Touch screens: the same panel, with larger targets for fingers */
+@media (pointer: coarse) {
+    #tools {
+        gap: 12px;
+        padding: 10px 14px;
+    }
+
+    #swatches { gap: 10px; }
+
+    #swatches button {
+        width: 24px;
+        height: 24px;
+    }
+
+    #thinner,
+    #thicker,
+    #help {
+        min-width: 32px;
+        min-height: 32px;
+        font-size: 1.2em;
+    }
+
+    #keys { gap: 0 12px; }
+    #keys .row { padding: 7px 0; }
+
+    /* Color and width have their own buttons above */
+    #keys span.row { display: none; }
+}
 
 @media (max-width: 767px) {
     #tools { bottom: 52px; }

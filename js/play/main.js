@@ -32,7 +32,8 @@ const state = {
   ink: 0,
   width: 2,
   strokes: [],
-  current: null,
+  // The strokes being painted now, by pointer, so two fingers paint two lines.
+  drawing: new Map(),
   hidden: false,
   fade: true,
   // The fade clock, in seconds. It stops while fade is off.
@@ -179,7 +180,7 @@ paint.addEventListener("pointerdown", (e) => {
   paint.setPointerCapture(e.pointerId)
   const p = point(e)
   const stroke = { ink: state.ink, width: WIDTHS[state.width], points: [p], born: null }
-  state.current = stroke
+  state.drawing.set(e.pointerId, stroke)
   state.strokes.push(stroke)
   dot(stroke, p)
   mark(stroke, p, p)
@@ -190,7 +191,7 @@ paint.addEventListener("pointerdown", (e) => {
 
 paint.addEventListener("pointermove", (e) => {
   moveBrush(e)
-  const stroke = state.current
+  const stroke = state.drawing.get(e.pointerId)
   if (!stroke) return
   for (const ev of e.getCoalescedEvents?.() || [e]) {
     const p = point(ev)
@@ -209,10 +210,12 @@ paint.addEventListener("pointermove", (e) => {
   }
 })
 
-const end = () => {
-  if (!state.current) return
-  const stroke = state.current
-  state.current = null
+const end = (e) => {
+  // On a touch screen, the browser lets sound start only when the finger lifts.
+  if (e.type === "pointerup") begin()
+  const stroke = state.drawing.get(e.pointerId)
+  if (!stroke) return
+  state.drawing.delete(e.pointerId)
   stroke.born = state.clock
   delete stroke.lastNote
   redraw()
@@ -240,15 +243,17 @@ function styleBrush() {
 }
 
 // Sound starts on the first touch, click or key, as the browser asks.
+// A later call wakes the sound if the browser kept it paused.
 
 function begin() {
-  if (sound.started) return
   sound.start(scene)
+  if (sound.onNote.wired) return
   sound.score = state.strokes.length ? score : null
   sound.onNote = (x, y, strength) => {
     field.pulse(0.12 * strength)
     if (strength > 1) field.rippleAt(x, y)
   }
+  sound.onNote.wired = true
 }
 
 // The panel and the keys.
@@ -288,7 +293,7 @@ function setWidth(i) {
 function setFade(on) {
   state.fade = on
   $("fade").textContent = on ? "fades" : "stays"
-  $("fade").setAttribute("aria-pressed", String(on))
+  tools.querySelector('[data-action="fade"]').setAttribute("aria-pressed", String(on))
 }
 
 function toggleFade() {
@@ -355,16 +360,25 @@ function record() {
   recorder.onstop = () => {
     const blob = new Blob(chunks, { type: recorder.mimeType })
     const a = document.createElement("a")
-    a.download = `vela-play-${slug()}.${recorder.mimeType.includes("ogg") ? "ogg" : "webm"}`
+    const type = recorder.mimeType
+    a.download = `vela-play-${slug()}.${type.includes("ogg") ? "ogg" : type.includes("mp4") ? "m4a" : "webm"}`
     a.href = URL.createObjectURL(blob)
     a.click()
     recorder = null
     tools.classList.remove("recording")
+    $("record-label").textContent = "record sound"
     flash("recording saved")
   }
   recorder.start()
   tools.classList.add("recording")
+  $("record-label").textContent = "stop recording"
   flash("recording")
+}
+
+function mute() {
+  const muted = sound.toggleMute()
+  $("mute-label").textContent = muted ? "sound on" : "mute"
+  flash(muted ? "quiet" : "sound on")
 }
 
 function toggleHidden() {
@@ -395,7 +409,7 @@ addEventListener("keydown", (e) => {
   else if (k === "p") toggleFade()
   else if (k === "s") save()
   else if (k === "r") record()
-  else if (k === "m") flash(sound.toggleMute() ? "quiet" : "sound on")
+  else if (k === "m") mute()
   else if (k === "h") toggleHidden()
   else if (k === "?" || k === "k") toggleKeys()
   else if (k === "escape") $("keys").hidden = true
@@ -411,9 +425,11 @@ tools.addEventListener("click", (e) => {
   if (b.dataset.ink) setInk(+b.dataset.ink)
   else if (b.id === "thinner") setWidth(state.width - 1)
   else if (b.id === "thicker") setWidth(state.width + 1)
-  else if (b.id === "fade") toggleFade()
   else if (b.id === "help") toggleKeys()
+  else if (b.dataset.action) ACTIONS[b.dataset.action]()
 })
+
+const ACTIONS = { undo, clear, reroll, mute, save, record, hide: toggleHidden, fade: toggleFade }
 $("bare-toggle").addEventListener("click", toggleHidden)
 
 // Every frame: move the playhead, and let old paint fade. A fading canvas is
