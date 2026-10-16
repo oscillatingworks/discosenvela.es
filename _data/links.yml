@@ -1,17 +1,6 @@
-- name: "Volumens / 15.10.2026 / Tickets"
-  url: https://ra.co/events/2489043
-  image: img/events/volumens-vela-showcase.jpg
-  highlight: true
-
-- name: "Material Velado / 06.10.2026"
-  type: release
-  image: img/events/material-velado-015.jpg
-  platforms:
-    - name: Radio Relativa
-      url: https://radiorelativa.eu/episode/material-velado-1791120255
-
 - name: "Revendless / Nostalgia"
   type: release
+  highlight: true
   image: img/releases/vela005.jpg
   platforms:
     - name: Bandcamp
@@ -20,6 +9,17 @@
       url: https://open.spotify.com/album/48neC9lEQFPTOT6AS772hj?si=wSztPol2QdmFsNh3W4BikA
     - name: Apple Music
       url: https://music.apple.com/es/album/nostalgia/6768358270?l=en-GB
+
+- name: "Volumens / 15.10.2026 / Tickets"
+  url: https://ra.co/events/2489043
+  image: img/events/volumens-vela-showcase.jpg
+
+- name: "Material Velado / 06.10.2026"
+  type: release
+  image: img/events/material-velado-015.jpg
+  platforms:
+    - name: Radio Relativa
+      url: https://radiorelativa.eu/episode/material-velado-1791120255
 
 - name: "413x / No Sé Dónde Me He Ido"
   type: release
