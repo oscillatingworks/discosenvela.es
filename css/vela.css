@@ -112,6 +112,25 @@ a.highlight {
     cursor: default;
 }
 
+/* Subpages: a random textured background from js/texture.js, behind the content.
+   The solid color above stays as the fallback without WebGL. */
+canvas.texture {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+}
+
+canvas.texture-strip {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    pointer-events: none;
+}
+
 /* ==========================================================================
    Header & Navigation
    Logo and navigation links at the top of every page
@@ -212,6 +231,11 @@ footer {
 /* Solid background for subpages (gradient page footer is transparent) */
 footer.no-index {
     background: #7e8aed;
+}
+
+/* On the texture, the footer sits on a copy of the texture (see js/texture.js) */
+.has-texture footer.no-index {
+    background: transparent;
 }
 
 @media (max-width: 767px) {

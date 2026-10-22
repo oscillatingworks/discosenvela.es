@@ -15,6 +15,7 @@ uniform float u_flow;
 uniform float u_motion;
 uniform float u_pulse;
 uniform float u_seed;
+uniform float u_grain;
 uniform vec3 u_ripple;
 uniform vec3 u_c0;
 uniform vec3 u_c1;
@@ -77,16 +78,16 @@ void main() {
 
   // Paper fibers: fine streaks that give the color a texture.
   float fiber = fbm(vec2(p.x * 3.0, p.y * 38.0) + u_seed) - 0.5;
-  col += fiber * 0.02;
+  col += fiber * 0.02 * u_grain;
 
   float d = length(p - u_ripple.xy);
   float ring = exp(-u_ripple.z * 0.9) * smoothstep(0.08, 0.0, abs(d - u_ripple.z * 0.3));
   col += vec3(1.0) * ring * 0.12;
   col = mix(col, vec3(1.0), u_pulse * 0.05);
 
-  // Film grain.
+  // Film grain. With no grain, keep a faint dither so the gradient does not band.
   float grain = hash(gl_FragCoord.xy + fract(u_time * 13.0) * 97.0) - 0.5;
-  col += grain * 0.06;
+  col += grain * mix(0.008, 0.06, u_grain);
 
   gl_FragColor = vec4(clamp(col, 0.0, 1.0), 1.0);
 }
@@ -95,8 +96,12 @@ void main() {
 const lerp = (a, b, k) => a + (b - a) * k
 
 export class Field {
-  constructor(canvas) {
+  // A still field draws once, and again on resize, instead of on every frame.
+  // The grain sets how much film grain and paper fiber it has, from 0 to 1.
+  constructor(canvas, { still = false, grain = 1 } = {}) {
     this.canvas = canvas
+    this.still = still
+    this.grain = grain
     this.gl = canvas.getContext("webgl", { antialias: false, preserveDrawingBuffer: true })
     this.motion = 0
     this.motionTarget = 0
@@ -109,7 +114,7 @@ export class Field {
     addEventListener("resize", () => this.resize())
     this.resize()
     this.last = performance.now()
-    requestAnimationFrame((t) => this.frame(t))
+    if (!still) requestAnimationFrame((t) => this.frame(t))
   }
 
   get ok() {
@@ -136,7 +141,7 @@ export class Field {
     gl.enableVertexAttribArray(pos)
     gl.vertexAttribPointer(pos, 2, gl.FLOAT, false, 0, 0)
     this.u = {}
-    for (const name of ["res", "time", "flow", "motion", "pulse", "seed", "ripple", "c0", "c1", "c2", "c3"]) {
+    for (const name of ["res", "time", "flow", "motion", "pulse", "seed", "grain", "ripple", "c0", "c1", "c2", "c3"]) {
       this.u[name] = gl.getUniformLocation(program, `u_${name}`)
     }
   }
@@ -147,12 +152,14 @@ export class Field {
     this.canvas.width = Math.max(1, Math.round(innerWidth * scale))
     this.canvas.height = Math.max(1, Math.round(innerHeight * scale))
     this.gl.viewport(0, 0, this.canvas.width, this.canvas.height)
+    if (this.still) this.draw(performance.now())
   }
 
   setScene(scene) {
     this.seed = scene.seed % 1000
     this.target = scene.palette
     if (!this.palette) this.palette = this.target.map((c) => [...c])
+    if (this.still) this.draw(performance.now())
   }
 
   setMotion(amount) {
@@ -182,6 +189,11 @@ export class Field {
       this.palette = this.palette.map((c, i) => c.map((v, j) => lerp(v, this.target[i][j], k)))
     }
 
+    this.draw(now)
+    requestAnimationFrame((t) => this.frame(t))
+  }
+
+  draw(now) {
     const gl = this.gl
     const u = this.u
     gl.uniform2f(u.res, this.canvas.width, this.canvas.height)
@@ -190,9 +202,10 @@ export class Field {
     gl.uniform1f(u.motion, this.motion)
     gl.uniform1f(u.pulse, this.pulseLevel)
     gl.uniform1f(u.seed, this.seed || 0)
+    gl.uniform1f(u.grain, this.grain)
     gl.uniform3f(u.ripple, ...this.ripple)
     if (this.palette) this.palette.forEach((c, i) => gl.uniform3f(u[`c${i}`], ...c))
     gl.drawArrays(gl.TRIANGLES, 0, 3)
-    requestAnimationFrame((t) => this.frame(t))
+    this.onDraw?.()
   }
 }
