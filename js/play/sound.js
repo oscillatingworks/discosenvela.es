@@ -9,6 +9,12 @@ const mtof = (m) => 440 * 2 ** ((m - 69) / 12)
 const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v))
 const ramp = (v, from, to) => clamp((v - from) / (to - from))
 
+// How many whole periods a clock is behind the time t. A layer's clock stops
+// while the layer is silent (or the tab is hidden), and a note set in the past
+// plays at once. So a late layer skips the missed notes instead of playing them
+// all together, and stays on its grid.
+const missed = (next, t, period) => (next < t ? Math.ceil((t - next) / period) : 0)
+
 // The note for a scale degree. Degrees past the scale wrap into the next octave.
 export function degree(scene, i, octave = 0) {
   const steps = scene.scale.steps
@@ -303,6 +309,9 @@ class Pulse extends Layer {
   }
 
   tick(t) {
+    const skip = missed(this.next, t, this.e.beat * 2)
+    this.count += skip
+    this.next += skip * this.e.beat * 2
     while (this.next < t + 0.4) {
       const midi = degree(this.scene, this.count % 4 === 3 ? 4 : 0, 1)
       const env = this.gain(0, this.filter("lowpass", 700, 0.7))
@@ -331,6 +340,9 @@ class Ticks extends Layer {
   }
 
   tick(t) {
+    const skip = missed(this.next, t, this.e.beat / 4)
+    this.step += skip
+    this.next += skip * (this.e.beat / 4)
     while (this.next < t + 0.4) {
       if (this.pattern[this.step % 16]) {
         const accent = this.step % 4 === 0 ? 1 : 0.55
@@ -364,6 +376,7 @@ class Loops extends Layer {
 
   tick(t) {
     for (const loop of this.loops) {
+      loop.next += missed(loop.next, t, loop.period) * loop.period
       while (loop.next < t + 0.4) {
         this.felt(loop.midi, loop.next, 0.05)
         loop.next += loop.period
