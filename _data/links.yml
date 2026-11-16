@@ -1,6 +1,10 @@
+- name: "Velada 005 / 28.11.26 / Tickets"
+  url: https://dice.fm/partner/tickets/event/pgoeow-velada-005-28th-nov-pluto-valencia-tickets?lng=en-US
+  image: img/events/velada005.jpg
+  highlight: true
+
 - name: "Revendless / Nostalgia"
   type: release
-  highlight: true
   image: img/releases/vela005.jpg
   platforms:
     - name: Bandcamp
@@ -20,6 +24,8 @@
   platforms:
     - name: Radio Relativa
       url: https://radiorelativa.eu/episode/material-velado-1791120255
+    - name: SoundCloud
+      url: https://soundcloud.com/discosenvela/material-velado-015
 
 - name: "413x / No Sé Dónde Me He Ido"
   type: release
