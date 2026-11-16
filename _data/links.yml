@@ -14,11 +14,11 @@
     - name: Apple Music
       url: https://music.apple.com/es/album/nostalgia/6768358270?l=en-GB
 
-- name: "Volumens / 15.10.2026 / Tickets"
+- name: "Volumens / 15.10.26 / Tickets"
   url: https://ra.co/events/2489043
   image: img/events/volumens-vela-showcase.jpg
 
-- name: "Material Velado / 06.10.2026"
+- name: "Material Velado / 06.10.26"
   type: release
   image: img/events/material-velado-015.jpg
   platforms:
