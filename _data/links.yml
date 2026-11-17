@@ -3,6 +3,15 @@
   image: img/events/velada005.jpg
   highlight: true
 
+- name: "Material Velado / 03.11.26"
+  type: release
+  image: img/events/material-velado-016.jpg
+  platforms:
+    - name: Radio Relativa
+      url: https://radiorelativa.eu/episode/material-velado-especial-velada-1792665854
+    - name: SoundCloud
+      url: https://soundcloud.com/discosenvela/material-velado-016-especial
+
 - name: "Revendless / Nostalgia"
   type: release
   image: img/releases/vela005.jpg
